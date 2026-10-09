@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus ERP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">SC</div>
+      <h2>Smart Campus</h2>
+      <p>ERP Administration</p>
+    </div>
+
+    <nav>
+      <button class="nav-link active" data-section="dashboard">▦ Dashboard</button>
+      <button class="nav-link" data-section="students">♙ Students</button>
+      <button class="nav-link" data-section="faculty">♧ Faculty</button>
+      <button class="nav-link" data-section="courses">▤ Courses</button>
+      <button class="nav-link" data-section="attendance">◷ Attendance</button>
+      <button class="nav-link" data-section="exams">▣ Examinations</button>
+    </nav>
+
+    <div class="sidebar-footer">Smart Campus ERP<br>College Administration</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">COLLEGE ADMINISTRATION</p>
+        <h1 id="page-title">Dashboard</h1>
+      </div>
+      <div class="admin"><span class="avatar">A</span><span>Admin</span></div>
+    </header>
+
+    <section id="dashboard" class="page">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow light">SMART CAMPUS ERP</p>
+          <h2>Welcome back, Admin!</h2>
+          <p>Manage your college operations from one place.</p>
+        </div>
+        <div class="welcome-icon">🎓</div>
+      </div>
+
+      <div class="stats">
+        <article class="stat-card"><span class="stat-icon purple">♙</span><p>Total Students</p><h2 id="student-count">0</h2><small>Registered students</small></article>
+        <article class="stat-card"><span class="stat-icon blue">♧</span><p>Total Faculty</p><h2 id="faculty-count">0</h2><small>Faculty records</small></article>
+        <article class="stat-card"><span class="stat-icon orange">▤</span><p>Total Courses</p><h2 id="course-count">0</h2><small>Available courses</small></article>
+        <article class="stat-card"><span class="stat-icon green">◷</span><p>Attendance Records</p><h2 id="attendance-count">0</h2><small>Records entered</small></article>
+      </div>
+
+      <div class="section-heading"><div><h2>Quick Access</h2><p>Choose a module to get started.</p></div></div>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="students"><span class="quick-icon purple">♙</span><h3>Student Management</h3><p>Add and manage student records</p><span class="arrow">→</span></button>
+        <button class="quick-card" data-go="faculty"><span class="quick-icon blue">♧</span><h3>Faculty Management</h3><p>Organize faculty information</p><span class="arrow">→</span></button>
+        <button class="quick-card" data-go="courses"><span class="quick-icon orange">▤</span><h3>Course Management</h3><p>Maintain course details</p><span class="arrow">→</span></button>
+        <button class="quick-card" data-go="attendance"><span class="quick-icon green">◷</span><h3>Attendance</h3><p>Record daily attendance</p><span class="arrow">→</span></button>
+        <button class="quick-card" data-go="exams"><span class="quick-icon pink">▣</span><h3>Examinations</h3><p>Track examination records</p><span class="arrow">→</span></button>
+      </div>
+
+      <section class="panel recent">
+        <div class="section-heading"><div><h2>Recent Students</h2><p>Latest student records</p></div><button class="secondary" data-go="students">View all</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Student ID</th><th>Name</th><th>Department</th><th>Email</th></tr></thead><tbody id="recent-students"></tbody></table></div>
+      </section>
+    </section>
+
+    <section id="students" class="page hidden">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Student Management</h2><p>Add, search and remove student records.</p></div></div>
+        <form id="student-form" class="form-grid">
+          <label>Student ID<input name="id" required placeholder="STU001"></label>
+          <label>Full Name<input name="name" required placeholder="Student name"></label>
+          <label>Department<input name="department" required placeholder="Computer Science"></label>
+          <label>Email<input name="email" type="email" required placeholder="student@example.com"></label>
+          <button class="primary" type="submit">+ Add Student</button>
+        </form>
+        <div class="toolbar"><input id="student-search" placeholder="Search students..."><span id="student-total" class="muted"></span></div>
+        <div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Email</th><th>Action</th></tr></thead><tbody id="student-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="faculty" class="page hidden">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Faculty Management</h2><p>Maintain faculty information.</p></div></div>
+        <form id="faculty-form" class="form-grid">
+          <label>Faculty ID<input name="id" required placeholder="FAC001"></label>
+          <label>Full Name<input name="name" required placeholder="Faculty name"></label>
+          <label>Department<input name="department" required placeholder="Department"></label>
+          <label>Email<input name="email" type="email" required placeholder="faculty@example.com"></label>
+          <button class="primary" type="submit">+ Add Faculty</button>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Email</th><th>Action</th></tr></thead><tbody id="faculty-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="courses" class="page hidden">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Course Management</h2><p>Maintain your college course catalogue.</p></div></div>
+        <form id="course-form" class="form-grid">
+          <label>Course ID<input name="id" required placeholder="CSE01"></label>
+          <label>Course Name<input name="name" required placeholder="Computer Science"></label>
+          <label>Department<input name="department" required placeholder="CSE"></label>
+          <button class="primary" type="submit">+ Add Course</button>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Course ID</th><th>Course Name</th><th>Department</th><th>Action</th></tr></thead><tbody id="course-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="attendance" class="page hidden">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Attendance Management</h2><p>Record attendance for students.</p></div></div>
+        <form id="attendance-form" class="form-grid">
+          <label>Student ID<select name="studentId" id="attendance-student" required></select></label>
+          <label>Course ID<select name="courseId" id="attendance-course" required></select></label>
+          <label>Date<input name="date" type="date" required></label>
+          <label>Status<select name="status" required><option value="Present">Present</option><option value="Absent">Absent</option></select></label>
+          <button class="primary" type="submit">+ Record Attendance</button>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Student ID</th><th>Course ID</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="attendance-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="exams" class="page hidden">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Examination Management</h2><p>Schedule and track examinations.</p></div></div>
+        <form id="exam-form" class="form-grid">
+          <label>Exam ID<input name="id" required placeholder="EX001"></label>
+          <label>Course ID<select name="courseId" id="exam-course" required></select></label>
+          <label>Exam Date<input name="date" type="date" required></label>
+          <label>Maximum Marks<input name="marks" type="number" min="1" required placeholder="100"></label>
+          <button class="primary" type="submit">+ Add Examination</button>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Exam ID</th><th>Course ID</th><th>Date</th><th>Maximum Marks</th><th>Action</th></tr></thead><tbody id="exam-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <footer>Smart Campus ERP <span>College Administration Demo · Browser storage</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
