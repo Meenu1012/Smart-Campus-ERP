@@ -1,4 +1,4 @@
-﻿```yaml
+﻿
 name: Deploy Smart Campus ERP Demo
 
 on:
@@ -18,11 +18,7 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,4 +39,4 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
-```
+
